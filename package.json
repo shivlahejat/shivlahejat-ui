@@ -1,0 +1,28 @@
+{
+  "name": "zerostyled-ui-monorepo",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "npm run build -w zerostyled && npm run dev -w zerostyled-ui-docs",
+    "build": "npm run build -w zerostyled && npm run build -w zerostyled-ui-docs",
+    "registry:build": "node scripts/build-registry.mjs",
+    "test": "npm test -w zerostyled && npm test -w zerostyled-ui",
+    "typecheck": "npm run typecheck -w zerostyled && npm run typecheck -w zerostyled-ui-docs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "npm run format:check && npm test && npm run typecheck && npm run build",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "npm run build -w zerostyled && changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.0",
+    "prettier": "^3.3.0"
+  }
+}

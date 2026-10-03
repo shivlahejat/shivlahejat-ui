@@ -1,0 +1,32 @@
+{
+  "name": "zerostyled-ui",
+  "version": "0.1.0",
+  "description": "Add zerostyled UI components to your Next.js project. You own the code.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "zerostyled-ui": "./bin/index.mjs"
+  },
+  "files": [
+    "bin"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "ui",
+    "components",
+    "styled-components",
+    "nextjs",
+    "shadcn",
+    "zerostyled"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-name/zerostyled-ui.git",
+    "directory": "packages/cli"
+  }
+}

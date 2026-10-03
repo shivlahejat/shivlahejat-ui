@@ -1,0 +1,109 @@
+{
+  "name": "zerostyled-ui",
+  "homepage": "https://github.com/your-name/zerostyled-ui",
+  "items": [
+    {
+      "name": "theme",
+      "title": "Theme",
+      "description": "Design tokens (light and dark), base styles and shared animations.",
+      "files": ["ui/theme.tsx"],
+      "dependencies": ["zerostyled"]
+    },
+    {
+      "name": "button",
+      "title": "Button",
+      "description": "Six variants and four sizes. Works with asChild.",
+      "files": ["ui/button.tsx"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "input",
+      "title": "Input",
+      "description": "Text input with focus and invalid states.",
+      "files": ["ui/input.tsx"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "textarea",
+      "title": "Textarea",
+      "description": "Multi-line input sharing the Input styles.",
+      "files": ["ui/textarea.tsx"],
+      "registryDependencies": ["input"]
+    },
+    {
+      "name": "label",
+      "title": "Label",
+      "description": "Form label.",
+      "files": ["ui/label.tsx"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "card",
+      "title": "Card",
+      "description": "Card with header, title, description, content and footer.",
+      "files": ["ui/card.tsx"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "badge",
+      "title": "Badge",
+      "description": "Small status label.",
+      "files": ["ui/badge.tsx"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "separator",
+      "title": "Separator",
+      "description": "Horizontal or vertical divider.",
+      "files": ["ui/separator.tsx"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "typography",
+      "title": "Typography",
+      "description": "Heading, Text and InlineCode.",
+      "files": ["ui/typography.tsx"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "dialog",
+      "title": "Dialog",
+      "description": "Accessible modal dialog built on Radix.",
+      "files": ["ui/dialog.tsx"],
+      "dependencies": ["@radix-ui/react-dialog"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "dropdown-menu",
+      "title": "Dropdown Menu",
+      "description": "Accessible menu built on Radix.",
+      "files": ["ui/dropdown-menu.tsx"],
+      "dependencies": ["@radix-ui/react-dropdown-menu"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "tabs",
+      "title": "Tabs",
+      "description": "Accessible tabs built on Radix.",
+      "files": ["ui/tabs.tsx"],
+      "dependencies": ["@radix-ui/react-tabs"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "tooltip",
+      "title": "Tooltip",
+      "description": "Tooltip that needs no provider in your layout.",
+      "files": ["ui/tooltip.tsx"],
+      "dependencies": ["@radix-ui/react-tooltip"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "switch",
+      "title": "Switch",
+      "description": "Accessible toggle built on Radix.",
+      "files": ["ui/switch.tsx"],
+      "dependencies": ["@radix-ui/react-switch"],
+      "registryDependencies": ["theme"]
+    }
+  ]
+}
