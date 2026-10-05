@@ -1,4 +1,4 @@
-import { styled } from "zerostyled";
+import { styled } from "shivlahejat";
 
 export const Label = styled.label`
   display: inline-block;

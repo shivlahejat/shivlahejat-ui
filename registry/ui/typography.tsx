@@ -1,4 +1,4 @@
-import { styled, css } from "zerostyled";
+import { styled, css } from "shivlahejat";
 import { theme } from "./theme";
 
 /** <Heading size="xl" as="h1"> — size and element are independent. */

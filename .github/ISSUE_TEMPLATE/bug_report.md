@@ -9,4 +9,4 @@ about: Something isn't working
 
 **Reproduction** (component, code snippet, or a repo link)
 
-**Versions:** Next.js / React / zerostyled / browser
+**Versions:** Next.js / React / shivlahejat / browser

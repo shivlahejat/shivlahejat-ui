@@ -4,8 +4,8 @@
 //
 //   node scripts/build-registry.mjs [--out apps/docs/public/r] [--base-url https://site.com/r]
 //
-// --base-url turns registryDependencies into absolute URLs, which the shadcn
-// CLI needs. Our own CLI understands both names and URLs.
+// --base-url (or REGISTRY_BASE_URL, or Vercel's production URL) turns registryDependencies
+// into absolute URLs, which the shadcn CLI needs. Our own CLI understands both names and URLs.
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -17,7 +17,11 @@ const flag = (name, fallback) => {
   return i === -1 ? fallback : args[i + 1];
 };
 const out = resolve(root, flag("--out", "apps/docs/public/r"));
-const baseUrl = flag("--base-url", "")?.replace(/\/$/, "");
+// On Vercel the production URL is known, so the published JSON gets absolute dependency URLs
+// (needed by the shadcn CLI) without extra config. REGISTRY_BASE_URL overrides it.
+const vercelUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+const envBase = process.env.REGISTRY_BASE_URL ?? (vercelUrl ? `https://${vercelUrl}/r` : "");
+const baseUrl = flag("--base-url", envBase)?.replace(/\/$/, "");
 
 const manifest = JSON.parse(await readFile(join(root, "registry/registry.json"), "utf8"));
 await mkdir(out, { recursive: true });

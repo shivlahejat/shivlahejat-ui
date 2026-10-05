@@ -2,7 +2,7 @@
 
 import type { ComponentProps } from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { styled, keyframes } from "zerostyled";
+import { styled, keyframes } from "shivlahejat";
 import { theme, fadeIn, fadeOut, focusRing } from "./theme";
 
 export const Dialog = DialogPrimitive.Root;

@@ -1,47 +1,56 @@
 {
-  "name": "zerostyled-ui",
-  "homepage": "https://github.com/your-name/zerostyled-ui",
+  "name": "shivlahejat-ui",
+  "homepage": "https://github.com/shivlahejat/shivlahejat-ui",
   "items": [
     {
       "name": "theme",
       "title": "Theme",
       "description": "Design tokens (light and dark), base styles and shared animations.",
       "files": ["ui/theme.tsx"],
-      "dependencies": ["zerostyled"]
+      "dependencies": ["shivlahejat"]
     },
     {
-      "name": "button",
-      "title": "Button",
-      "description": "Six variants and four sizes. Works with asChild.",
-      "files": ["ui/button.tsx"],
+      "name": "accordion",
+      "title": "Accordion",
+      "description": "Vertically stacked sections that expand and collapse.",
+      "files": ["ui/accordion.tsx"],
+      "dependencies": ["@radix-ui/react-accordion"],
       "registryDependencies": ["theme"]
     },
     {
-      "name": "input",
-      "title": "Input",
-      "description": "Text input with focus and invalid states.",
-      "files": ["ui/input.tsx"],
+      "name": "alert",
+      "title": "Alert",
+      "description": "Callout for important messages, with optional icon.",
+      "files": ["ui/alert.tsx"],
       "registryDependencies": ["theme"]
     },
     {
-      "name": "textarea",
-      "title": "Textarea",
-      "description": "Multi-line input sharing the Input styles.",
-      "files": ["ui/textarea.tsx"],
-      "registryDependencies": ["input"]
+      "name": "alert-dialog",
+      "title": "Alert Dialog",
+      "description": "Modal that asks the user to confirm an action.",
+      "files": ["ui/alert-dialog.tsx"],
+      "dependencies": ["@radix-ui/react-alert-dialog"],
+      "registryDependencies": ["theme", "button"]
     },
     {
-      "name": "label",
-      "title": "Label",
-      "description": "Form label.",
-      "files": ["ui/label.tsx"],
-      "registryDependencies": ["theme"]
+      "name": "aspect-ratio",
+      "title": "Aspect Ratio",
+      "description": "Keeps content at a set width/height ratio. Pure CSS.",
+      "files": ["ui/aspect-ratio.tsx"]
     },
     {
-      "name": "card",
-      "title": "Card",
-      "description": "Card with header, title, description, content and footer.",
-      "files": ["ui/card.tsx"],
+      "name": "attachment",
+      "title": "Attachment",
+      "description": "File or image chip with upload states and actions.",
+      "files": ["ui/attachment.tsx"],
+      "registryDependencies": ["theme", "button", "marker"]
+    },
+    {
+      "name": "avatar",
+      "title": "Avatar",
+      "description": "Image with a fallback, plus an overlapping group.",
+      "files": ["ui/avatar.tsx"],
+      "dependencies": ["@radix-ui/react-avatar"],
       "registryDependencies": ["theme"]
     },
     {
@@ -52,18 +61,117 @@
       "registryDependencies": ["theme"]
     },
     {
-      "name": "separator",
-      "title": "Separator",
-      "description": "Horizontal or vertical divider.",
-      "files": ["ui/separator.tsx"],
+      "name": "breadcrumb",
+      "title": "Breadcrumb",
+      "description": "Path to the current page.",
+      "files": ["ui/breadcrumb.tsx"],
       "registryDependencies": ["theme"]
     },
     {
-      "name": "typography",
-      "title": "Typography",
-      "description": "Heading, Text and InlineCode.",
-      "files": ["ui/typography.tsx"],
+      "name": "bubble",
+      "title": "Bubble",
+      "description": "Chat message surface with variants and reactions.",
+      "files": ["ui/bubble.tsx"],
       "registryDependencies": ["theme"]
+    },
+    {
+      "name": "button",
+      "title": "Button",
+      "description": "Six variants and four sizes. Works with asChild.",
+      "files": ["ui/button.tsx"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "button-group",
+      "title": "Button Group",
+      "description": "Joins buttons, inputs and selects into one control.",
+      "files": ["ui/button-group.tsx"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "calendar",
+      "title": "Calendar",
+      "description": "Date grid for single, multiple or range selection (react-day-picker).",
+      "files": ["ui/calendar.tsx"],
+      "dependencies": ["react-day-picker"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "card",
+      "title": "Card",
+      "description": "Card with header, title, description, content and footer.",
+      "files": ["ui/card.tsx"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "carousel",
+      "title": "Carousel",
+      "description": "Swipeable slides built on embla-carousel.",
+      "files": ["ui/carousel.tsx"],
+      "dependencies": ["embla-carousel-react"],
+      "registryDependencies": ["button"]
+    },
+    {
+      "name": "chart",
+      "title": "Chart",
+      "description": "Themed recharts wrapper with tooltip and legend.",
+      "files": ["ui/chart.tsx"],
+      "dependencies": ["recharts"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "checkbox",
+      "title": "Checkbox",
+      "description": "Accessible checkbox with indeterminate state.",
+      "files": ["ui/checkbox.tsx"],
+      "dependencies": ["@radix-ui/react-checkbox"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "collapsible",
+      "title": "Collapsible",
+      "description": "Unstyled show/hide panel.",
+      "files": ["ui/collapsible.tsx"],
+      "dependencies": ["@radix-ui/react-collapsible"]
+    },
+    {
+      "name": "combobox",
+      "title": "Combobox",
+      "description": "Searchable select (Popover + Command).",
+      "files": ["ui/combobox.tsx"],
+      "registryDependencies": ["button", "popover", "command"]
+    },
+    {
+      "name": "command",
+      "title": "Command",
+      "description": "Filterable command menu built on cmdk.",
+      "files": ["ui/command.tsx"],
+      "dependencies": ["cmdk"],
+      "registryDependencies": ["theme", "dialog"]
+    },
+    {
+      "name": "context-menu",
+      "title": "Context Menu",
+      "description": "Right-click menu with submenus, checkbox and radio items.",
+      "files": ["ui/context-menu.tsx"],
+      "dependencies": ["@radix-ui/react-context-menu"],
+      "registryDependencies": ["dropdown-menu"]
+    },
+    {
+      "name": "data-table",
+      "title": "Data Table",
+      "description": "Sorting, filtering, pagination and selection (TanStack Table).",
+      "files": ["ui/data-table.tsx"],
+      "dependencies": ["@tanstack/react-table@^8"],
+      "registryDependencies": ["button", "input", "table"]
+    },
+    {
+      "name": "date-picker",
+      "title": "Date Picker",
+      "description": "Button + Popover + Calendar, for a date or a range.",
+      "files": ["ui/date-picker.tsx"],
+      "dependencies": ["react-day-picker"],
+      "registryDependencies": ["button", "calendar", "popover"]
     },
     {
       "name": "dialog",
@@ -74,11 +182,257 @@
       "registryDependencies": ["theme"]
     },
     {
+      "name": "direction",
+      "title": "Direction",
+      "description": "Right-to-left support for Radix components.",
+      "files": ["ui/direction.tsx"],
+      "dependencies": ["@radix-ui/react-direction"]
+    },
+    {
+      "name": "drawer",
+      "title": "Drawer",
+      "description": "Swipeable panel built on vaul.",
+      "files": ["ui/drawer.tsx"],
+      "dependencies": ["vaul"],
+      "registryDependencies": ["theme"]
+    },
+    {
       "name": "dropdown-menu",
       "title": "Dropdown Menu",
-      "description": "Accessible menu built on Radix.",
+      "description": "Accessible menu with submenus, checkbox and radio items.",
       "files": ["ui/dropdown-menu.tsx"],
       "dependencies": ["@radix-ui/react-dropdown-menu"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "empty",
+      "title": "Empty",
+      "description": "Empty state with icon, title, description and actions.",
+      "files": ["ui/empty.tsx"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "field",
+      "title": "Field",
+      "description": "Label, control, description and error for forms.",
+      "files": ["ui/field.tsx"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "hover-card",
+      "title": "Hover Card",
+      "description": "Preview content shown on hover.",
+      "files": ["ui/hover-card.tsx"],
+      "dependencies": ["@radix-ui/react-hover-card"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "input",
+      "title": "Input",
+      "description": "Text input with focus and invalid states.",
+      "files": ["ui/input.tsx"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "input-group",
+      "title": "Input Group",
+      "description": "Input or textarea with icons, text and buttons attached.",
+      "files": ["ui/input-group.tsx"],
+      "registryDependencies": ["theme", "button"]
+    },
+    {
+      "name": "input-otp",
+      "title": "Input OTP",
+      "description": "One-time code input.",
+      "files": ["ui/input-otp.tsx"],
+      "dependencies": ["input-otp"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "item",
+      "title": "Item",
+      "description": "Row of media, title, description and actions.",
+      "files": ["ui/item.tsx"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "kbd",
+      "title": "Kbd",
+      "description": "Keyboard key and key group.",
+      "files": ["ui/kbd.tsx"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "label",
+      "title": "Label",
+      "description": "Form label.",
+      "files": ["ui/label.tsx"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "marker",
+      "title": "Marker",
+      "description": "Inline status note or labelled divider for conversations.",
+      "files": ["ui/marker.tsx"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "menubar",
+      "title": "Menubar",
+      "description": "Desktop-style menu bar.",
+      "files": ["ui/menubar.tsx"],
+      "dependencies": ["@radix-ui/react-menubar"],
+      "registryDependencies": ["dropdown-menu"]
+    },
+    {
+      "name": "message",
+      "title": "Message",
+      "description": "Chat message row: avatar, header, bubble, footer.",
+      "files": ["ui/message.tsx"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "message-scroller",
+      "title": "Message Scroller",
+      "description": "Chat transcript scroller that anchors turns and follows streaming.",
+      "files": ["ui/message-scroller.tsx"],
+      "dependencies": ["@shadcn/react"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "native-select",
+      "title": "Native Select",
+      "description": "The browser select, styled to match Input.",
+      "files": ["ui/native-select.tsx"],
+      "registryDependencies": ["input"]
+    },
+    {
+      "name": "navigation-menu",
+      "title": "Navigation Menu",
+      "description": "Site navigation with animated dropdown panels.",
+      "files": ["ui/navigation-menu.tsx"],
+      "dependencies": ["@radix-ui/react-navigation-menu"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "pagination",
+      "title": "Pagination",
+      "description": "Page navigation with previous/next links.",
+      "files": ["ui/pagination.tsx"],
+      "registryDependencies": ["button"]
+    },
+    {
+      "name": "popover",
+      "title": "Popover",
+      "description": "Floating content anchored to a trigger.",
+      "files": ["ui/popover.tsx"],
+      "dependencies": ["@radix-ui/react-popover"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "progress",
+      "title": "Progress",
+      "description": "Progress bar.",
+      "files": ["ui/progress.tsx"],
+      "dependencies": ["@radix-ui/react-progress"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "questionnaire",
+      "title": "Questionnaire",
+      "description": "Multi-step question form with shortcuts and validation.",
+      "files": ["ui/questionnaire.tsx"],
+      "dependencies": ["@shadcn/react"],
+      "registryDependencies": ["theme", "button"]
+    },
+    {
+      "name": "radio-group",
+      "title": "Radio Group",
+      "description": "Pick one option from a set.",
+      "files": ["ui/radio-group.tsx"],
+      "dependencies": ["@radix-ui/react-radio-group"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "resizable",
+      "title": "Resizable",
+      "description": "Resizable panel groups.",
+      "files": ["ui/resizable.tsx"],
+      "dependencies": ["react-resizable-panels"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "scroll-area",
+      "title": "Scroll Area",
+      "description": "Scroll container with styled scrollbars.",
+      "files": ["ui/scroll-area.tsx"],
+      "dependencies": ["@radix-ui/react-scroll-area"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "select",
+      "title": "Select",
+      "description": "Accessible select with groups and scroll buttons.",
+      "files": ["ui/select.tsx"],
+      "dependencies": ["@radix-ui/react-select"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "separator",
+      "title": "Separator",
+      "description": "Horizontal or vertical divider.",
+      "files": ["ui/separator.tsx"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "sheet",
+      "title": "Sheet",
+      "description": "Dialog that slides in from any edge.",
+      "files": ["ui/sheet.tsx"],
+      "dependencies": ["@radix-ui/react-dialog"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "sidebar",
+      "title": "Sidebar",
+      "description": "Collapsible app sidebar with menus, groups and mobile sheet.",
+      "files": ["ui/sidebar.tsx"],
+      "registryDependencies": ["button", "input", "separator", "sheet", "skeleton", "tooltip"]
+    },
+    {
+      "name": "skeleton",
+      "title": "Skeleton",
+      "description": "Pulsing placeholder while content loads.",
+      "files": ["ui/skeleton.tsx"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "slider",
+      "title": "Slider",
+      "description": "Single value or range slider.",
+      "files": ["ui/slider.tsx"],
+      "dependencies": ["@radix-ui/react-slider"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "spinner",
+      "title": "Spinner",
+      "description": "Loading indicator.",
+      "files": ["ui/spinner.tsx"]
+    },
+    {
+      "name": "switch",
+      "title": "Switch",
+      "description": "Accessible toggle built on Radix.",
+      "files": ["ui/switch.tsx"],
+      "dependencies": ["@radix-ui/react-switch"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "table",
+      "title": "Table",
+      "description": "Responsive table parts.",
+      "files": ["ui/table.tsx"],
       "registryDependencies": ["theme"]
     },
     {
@@ -90,6 +444,37 @@
       "registryDependencies": ["theme"]
     },
     {
+      "name": "textarea",
+      "title": "Textarea",
+      "description": "Multi-line input sharing the Input styles.",
+      "files": ["ui/textarea.tsx"],
+      "registryDependencies": ["input"]
+    },
+    {
+      "name": "toast",
+      "title": "Toast",
+      "description": "Toast notifications built on sonner.",
+      "files": ["ui/toast.tsx"],
+      "dependencies": ["sonner"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "toggle",
+      "title": "Toggle",
+      "description": "Two-state button.",
+      "files": ["ui/toggle.tsx"],
+      "dependencies": ["@radix-ui/react-toggle"],
+      "registryDependencies": ["theme"]
+    },
+    {
+      "name": "toggle-group",
+      "title": "Toggle Group",
+      "description": "Set of toggles, single or multiple choice.",
+      "files": ["ui/toggle-group.tsx"],
+      "dependencies": ["@radix-ui/react-toggle-group"],
+      "registryDependencies": ["toggle"]
+    },
+    {
       "name": "tooltip",
       "title": "Tooltip",
       "description": "Tooltip that needs no provider in your layout.",
@@ -98,11 +483,10 @@
       "registryDependencies": ["theme"]
     },
     {
-      "name": "switch",
-      "title": "Switch",
-      "description": "Accessible toggle built on Radix.",
-      "files": ["ui/switch.tsx"],
-      "dependencies": ["@radix-ui/react-switch"],
+      "name": "typography",
+      "title": "Typography",
+      "description": "Heading, Text and InlineCode.",
+      "files": ["ui/typography.tsx"],
       "registryDependencies": ["theme"]
     }
   ]

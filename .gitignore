@@ -12,3 +12,6 @@ next-env.d.ts
 # Generated from registry/ by `npm run sync` in apps/docs
 apps/docs/components/ui/
 apps/docs/public/r/
+
+# Local test builds of the runtime (npm pack)
+*.tgz

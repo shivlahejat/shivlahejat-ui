@@ -1,4 +1,4 @@
-import { createTheme, globalStyle, css, keyframes } from "zerostyled";
+import { createTheme, globalStyle, css, keyframes } from "shivlahejat";
 
 /* Design tokens. Edit freely: every component reads from these. */
 const light = {
@@ -23,6 +23,15 @@ const light = {
     input: "#d2d7df",
     ring: "#2b45d4",
     overlay: "rgb(12 14 20 / 0.5)",
+    chart1: "#2b45d4",
+    chart2: "#0ea5a4",
+    chart3: "#f59e0b",
+    chart4: "#e1477a",
+    chart5: "#8b5cf6",
+    sidebar: "#f8f9fb",
+    sidebarForeground: "#15171c",
+    sidebarAccent: "#eceef3",
+    sidebarBorder: "#e1e4ea",
   },
   radius: { sm: "6px", md: "8px", lg: "12px", full: "999px" },
   font: {
@@ -58,6 +67,15 @@ const dark = {
     input: "#323743",
     ring: "#6f86ff",
     overlay: "rgb(0 0 0 / 0.6)",
+    chart1: "#6f86ff",
+    chart2: "#2dd4bf",
+    chart3: "#fbbf24",
+    chart4: "#f472b6",
+    chart5: "#a78bfa",
+    sidebar: "#121419",
+    sidebarForeground: "#eceef2",
+    sidebarAccent: "#1f232c",
+    sidebarBorder: "#262a33",
   },
   shadow: {
     sm: "0 1px 2px rgb(0 0 0 / 0.4)",

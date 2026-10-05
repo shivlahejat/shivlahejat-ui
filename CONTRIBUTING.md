@@ -13,8 +13,8 @@ npm run dev     # docs site at http://localhost:3000
 
 | Path                         | What it is                                           |
 | ---------------------------- | ---------------------------------------------------- |
-| `packages/zerostyled`        | Styling runtime published as `zerostyled`            |
-| `packages/cli`               | CLI published as `zerostyled-ui`                     |
+| `packages/shivlahejat`       | Styling runtime published as `shivlahejat`           |
+| `packages/cli`               | CLI published as `shivlahejat-ui`                    |
 | `registry/ui`                | Component sources. **Edit components here.**         |
 | `registry/registry.json`     | Files and dependencies of each component             |
 | `scripts/build-registry.mjs` | Turns `registry/` into JSON the CLI downloads        |

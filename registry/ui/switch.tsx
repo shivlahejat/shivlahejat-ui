@@ -2,7 +2,7 @@
 
 import type { ComponentProps } from "react";
 import * as SwitchPrimitive from "@radix-ui/react-switch";
-import { styled } from "zerostyled";
+import { styled } from "shivlahejat";
 import { theme, focusRing } from "./theme";
 
 const Root = styled(SwitchPrimitive.Root)`

@@ -1,11 +1,12 @@
 {
-  "name": "zerostyled-ui",
+  "name": "shivlahejat-ui",
   "version": "0.1.0",
-  "description": "Add zerostyled UI components to your Next.js project. You own the code.",
+  "description": "Add shivlahejat UI components to your Next.js project. You own the code.",
   "license": "MIT",
+  "author": "shivlahejat",
   "type": "module",
   "bin": {
-    "zerostyled-ui": "./bin/index.mjs"
+    "shivlahejat-ui": "./bin/index.mjs"
   },
   "files": [
     "bin"
@@ -19,14 +20,14 @@
     "styled-components",
     "nextjs",
     "shadcn",
-    "zerostyled"
+    "shivlahejat"
   ],
   "scripts": {
     "test": "node --test test/*.test.mjs"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/your-name/zerostyled-ui.git",
+    "url": "git+https://github.com/shivlahejat/shivlahejat-ui.git",
     "directory": "packages/cli"
   }
 }

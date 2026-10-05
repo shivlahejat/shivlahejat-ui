@@ -1,20 +1,22 @@
-# zerostyled/ui
+# shivlahejat/ui
 
 shadcn-style components for Next.js, written with styled components.
 Copy them into your project with one command, then change anything you like.
 
 - **No setup:** no style registry, no compiler config, no `"use client"` just for styling.
-- **Server Components:** Button, Card, Badge, Input and the other static components render with zero client JavaScript.
-- **Accessible:** interactive components (Dialog, Dropdown Menu, Tabs, Tooltip, Switch) are built on Radix.
+- **The full shadcn/ui set:** all 64 components, from Button to Sidebar, Data Table and the chat components.
+- **Server Components:** Button, Card, Table, Field and the other static components render with zero client JavaScript.
+- **Accessible:** interactive components are built on Radix (and cmdk, vaul, sonner, embla, react-day-picker
+  where shadcn uses them).
 - **You own the code:** components live in your repo, not in `node_modules`.
 
 ## For users of the library
 
 ```bash
-npx zerostyled-ui init                    # adds theme.tsx + installs zerostyled
-npx zerostyled-ui add button card dialog  # adds components and their dependencies
-npx zerostyled-ui add --all
-npx zerostyled-ui list
+npx shivlahejat-ui init                    # adds theme.tsx + installs shivlahejat
+npx shivlahejat-ui add button card dialog  # adds components and their dependencies
+npx shivlahejat-ui add --all
+npx shivlahejat-ui list
 ```
 
 Then render the theme once in `app/layout.tsx`:
@@ -49,19 +51,27 @@ fonts in `components/ui/theme.tsx`.
 
 ### Components
 
-| Server-safe                                                                                    | Interactive (Radix, `"use client"`)          |
-| ---------------------------------------------------------------------------------------------- | -------------------------------------------- |
-| Button, Badge, Card, Input, Textarea, Label, Separator, Typography (Heading, Text, InlineCode) | Dialog, Dropdown Menu, Tabs, Tooltip, Switch |
+**Server-safe** (no client JS): Alert, Aspect Ratio, Badge, Breadcrumb, Bubble, Button, Button Group,
+Card, Empty, Field, Input, Item, Kbd, Label, Marker, Message, Native Select, Pagination, Separator,
+Skeleton, Spinner, Table, Textarea, Typography, Attachment.
 
-Plus `Flex` and the `styled` API from the `zerostyled` runtime.
+**Interactive** (`"use client"`): Accordion, Alert Dialog, Avatar, Calendar, Carousel, Chart, Checkbox,
+Collapsible, Combobox, Command, Context Menu, Data Table, Date Picker, Dialog, Direction, Drawer,
+Dropdown Menu, Hover Card, Input Group, Input OTP, Menubar, Message Scroller, Navigation Menu, Popover,
+Progress, Questionnaire, Radio Group, Resizable, Scroll Area, Select, Sheet, Sidebar, Slider, Switch,
+Tabs, Toast, Toggle, Toggle Group, Tooltip.
+
+Run `npx shivlahejat-ui list` for descriptions.
+
+Plus `Flex` and the `styled` API from the `shivlahejat` runtime.
 
 ## Developing
 
 ```bash
-git clone https://github.com/your-name/zerostyled-ui.git
-cd zerostyled-ui
+git clone https://github.com/shivlahejat/shivlahejat-ui.git
+cd shivlahejat-ui
 npm install       # Node 20+
-npm run dev       # docs site at http://localhost:3000
+npm run dev       # docs site at http://localhost:3000 (landing, guides, a page per component)
 npm run check     # formatting, tests, type check, build
 ```
 

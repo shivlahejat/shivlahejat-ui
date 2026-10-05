@@ -2,7 +2,7 @@
 
 import type { ComponentProps } from "react";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
-import { styled } from "zerostyled";
+import { styled } from "shivlahejat";
 import { theme, popIn } from "./theme";
 
 /** Each Tooltip brings its own provider, so there's nothing to set up in your layout. */

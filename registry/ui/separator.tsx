@@ -1,5 +1,5 @@
 import type { ComponentProps } from "react";
-import { styled } from "zerostyled";
+import { styled } from "shivlahejat";
 import { theme } from "./theme";
 
 const Line = styled.div({

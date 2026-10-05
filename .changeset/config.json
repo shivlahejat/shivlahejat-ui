@@ -5,5 +5,5 @@
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["zerostyled-ui-docs"]
+  "ignore": ["shivlahejat-ui-docs"]
 }

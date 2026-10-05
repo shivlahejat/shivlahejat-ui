@@ -1,4 +1,4 @@
-import { styled } from "zerostyled";
+import { styled } from "shivlahejat";
 import { theme } from "./theme";
 
 export const Card = styled.div`

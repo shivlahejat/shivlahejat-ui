@@ -1,7 +1,7 @@
 "use client";
 
 import * as TabsPrimitive from "@radix-ui/react-tabs";
-import { styled } from "zerostyled";
+import { styled } from "shivlahejat";
 import { theme, focusRing } from "./theme";
 
 export const Tabs = styled(TabsPrimitive.Root)`

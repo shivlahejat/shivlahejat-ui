@@ -12,20 +12,20 @@ const cli = resolve(here, "../bin/index.mjs");
 const root = resolve(here, "../../..");
 
 async function project(pkg = {}) {
-  const dir = await mkdtemp(join(tmpdir(), "zsui-"));
+  const dir = await mkdtemp(join(tmpdir(), "slui-"));
   await writeFile(join(dir, "package.json"), JSON.stringify({ name: "app", dependencies: pkg }));
   return dir;
 }
 const run = (cwd, ...args) => spawnSync(process.execPath, [cli, ...args], { cwd, encoding: "utf8" });
 
 // Build a fresh registry into a temp folder once.
-const registry = await mkdtemp(join(tmpdir(), "zsui-registry-"));
+const registry = await mkdtemp(join(tmpdir(), "slui-registry-"));
 spawnSync(process.execPath, [join(root, "scripts/build-registry.mjs"), "--out", registry], {
   encoding: "utf8",
 });
 
 test("add copies the component and its registry dependencies", async () => {
-  const cwd = await project({ zerostyled: "*" });
+  const cwd = await project({ shivlahejat: "*" });
   const res = run(cwd, "add", "textarea", "--registry", registry, "--no-install");
   assert.equal(res.status, 0, res.stderr);
   for (const f of ["textarea.tsx", "input.tsx", "theme.tsx"])
@@ -35,7 +35,7 @@ test("add copies the component and its registry dependencies", async () => {
 });
 
 test("uses src/components/ui when the project has a src folder", async () => {
-  const cwd = await project({ zerostyled: "*" });
+  const cwd = await project({ shivlahejat: "*" });
   await mkdir(join(cwd, "src"));
   run(cwd, "add", "button", "--registry", registry, "--no-install");
   assert.ok(existsSync(join(cwd, "src/components/ui/button.tsx")));
@@ -43,7 +43,7 @@ test("uses src/components/ui when the project has a src folder", async () => {
 });
 
 test("does not overwrite edited files unless asked", async () => {
-  const cwd = await project({ zerostyled: "*" });
+  const cwd = await project({ shivlahejat: "*" });
   run(cwd, "add", "badge", "--registry", registry, "--no-install");
   const file = join(cwd, "components/ui/badge.tsx");
   await writeFile(file, "// my edits");
@@ -55,18 +55,47 @@ test("does not overwrite edited files unless asked", async () => {
 });
 
 test("lists only missing npm dependencies", async () => {
-  const cwd = await project({ zerostyled: "*" });
+  const cwd = await project({ shivlahejat: "*" });
   const res = run(cwd, "add", "dialog", "--registry", registry, "--no-install");
   assert.match(res.stdout, /npm install @radix-ui\/react-dialog/);
-  assert.doesNotMatch(res.stdout, /install[^\n]*zerostyled/);
+  assert.doesNotMatch(res.stdout, /install[^\n]*shivlahejat/);
   await rm(cwd, { recursive: true });
 });
 
+test("resolves URL dependencies from a local registry folder", async () => {
+  // Registries built for deployment list dependencies as absolute URLs.
+  const withUrls = await mkdtemp(join(tmpdir(), "slui-registry-urls-"));
+  spawnSync(
+    process.execPath,
+    [join(root, "scripts/build-registry.mjs"), "--out", withUrls, "--base-url", "https://example.invalid/r"],
+    { encoding: "utf8" }
+  );
+  const cwd = await project({ shivlahejat: "*" });
+  const res = run(cwd, "add", "textarea", "--registry", withUrls, "--no-install");
+  assert.equal(res.status, 0, res.stderr);
+  assert.ok(existsSync(join(cwd, "components/ui/input.tsx")));
+  await rm(cwd, { recursive: true });
+  await rm(withUrls, { recursive: true });
+});
+
+test("treats versioned dependencies as installed when the package is present", async () => {
+  // data-table depends on "@tanstack/react-table@^8".
+  const missing = await project({ shivlahejat: "*" });
+  const res = run(missing, "add", "data-table", "--registry", registry, "--no-install");
+  assert.match(res.stdout, /@tanstack\/react-table@\^8/);
+  await rm(missing, { recursive: true });
+
+  const present = await project({ shivlahejat: "*", "@tanstack/react-table": "^8.21.0" });
+  const again = run(present, "add", "data-table", "--registry", registry, "--no-install");
+  assert.doesNotMatch(again.stdout, /react-table/);
+  await rm(present, { recursive: true });
+});
+
 test("init writes the config and theme", async () => {
-  const cwd = await project({ zerostyled: "*" });
+  const cwd = await project({ shivlahejat: "*" });
   const res = run(cwd, "init", "--registry", registry, "--no-install");
   assert.equal(res.status, 0, res.stderr);
-  const config = JSON.parse(await readFile(join(cwd, "zerostyled-ui.json"), "utf8"));
+  const config = JSON.parse(await readFile(join(cwd, "shivlahejat-ui.json"), "utf8"));
   assert.equal(config.dir, "components/ui");
   assert.ok(existsSync(join(cwd, "components/ui/theme.tsx")));
   await rm(cwd, { recursive: true });

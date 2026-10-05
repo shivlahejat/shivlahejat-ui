@@ -1,4 +1,4 @@
-import { styled, css } from "zerostyled";
+import { styled, css } from "shivlahejat";
 import { theme, focusRing } from "./theme";
 
 export const Button = styled.button({

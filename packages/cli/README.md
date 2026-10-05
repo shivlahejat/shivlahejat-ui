@@ -1,12 +1,12 @@
-# zerostyled-ui
+# shivlahejat-ui
 
-Add zerostyled UI components to your Next.js project. The code is copied into your repo, so you own it.
+Add shivlahejat UI components to your Next.js project. The code is copied into your repo, so you own it.
 
 ```bash
-npx zerostyled-ui init
-npx zerostyled-ui add button card dialog
-npx zerostyled-ui add --all
-npx zerostyled-ui list
+npx shivlahejat-ui init
+npx shivlahejat-ui add button card dialog
+npx shivlahejat-ui add --all
+npx shivlahejat-ui list
 ```
 
 | Option                  | Description                                                                 |
@@ -17,4 +17,4 @@ npx zerostyled-ui list
 | `--no-install`          | Print the install command instead of running it                             |
 | `--quiet`               | Only print errors                                                           |
 
-Settings are saved in `zerostyled-ui.json`. See the main repository for the component list.
+Settings are saved in `shivlahejat-ui.json`. See the main repository for the component list.

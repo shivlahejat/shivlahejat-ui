@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 /*
- * zerostyled-ui — copy components into your project, shadcn style.
+ * shivlahejat-ui — copy components into your project, shadcn style.
  *
- *   npx zerostyled-ui init                 set up theme + config
- *   npx zerostyled-ui add button dialog    add components (and what they depend on)
- *   npx zerostyled-ui add --all
- *   npx zerostyled-ui list
+ *   npx shivlahejat-ui init                 set up theme + config
+ *   npx shivlahejat-ui add button dialog    add components (and what they depend on)
+ *   npx shivlahejat-ui add --all
+ *   npx shivlahejat-ui list
  *
  * Options: --registry <url|folder>  --dir <path>  --overwrite  --no-install
  */
@@ -15,8 +15,8 @@ import { basename, join, resolve, relative } from "node:path";
 import { spawnSync } from "node:child_process";
 
 // Change this to wherever you host the built registry (e.g. your docs site).
-const DEFAULT_REGISTRY = "https://zerostyled-ui.vercel.app/r";
-const CONFIG_FILE = "zerostyled-ui.json";
+const DEFAULT_REGISTRY = "https://shivlahejat-ui.vercel.app/r";
+const CONFIG_FILE = "shivlahejat-ui.json";
 
 const cwd = process.cwd();
 const argv = process.argv.slice(2);
@@ -63,6 +63,11 @@ async function loadConfig() {
 const isUrl = (s) => /^https?:\/\//.test(s);
 
 async function fetchItem(ref, registry) {
+  // With a local registry, resolve URL dependencies from the same folder when the file is there.
+  if (isUrl(ref) && !isUrl(registry)) {
+    const local = resolve(cwd, registry, ref.replace(/^.*\//, ""));
+    if (existsSync(local)) return readJson(local);
+  }
   const location = isUrl(ref)
     ? ref
     : isUrl(registry)
@@ -104,7 +109,11 @@ function detectPackageManager() {
 async function installDependencies(items) {
   const pkg = (await readJson(join(cwd, "package.json"))) ?? {};
   const installed = { ...pkg.dependencies, ...pkg.devDependencies };
-  const needed = [...new Set(items.flatMap((i) => i.dependencies ?? []))].filter((d) => !installed[d]);
+  // Dependencies may carry a version range ("@tanstack/react-table@^8"); compare by package name.
+  const nameOf = (spec) => spec.replace(/(?<=.)@.*$/, "");
+  const needed = [...new Set(items.flatMap((i) => i.dependencies ?? []))].filter(
+    (d) => !installed[nameOf(d)]
+  );
   if (!needed.length) return;
 
   const [pm, verb] = detectPackageManager();
@@ -161,7 +170,7 @@ ${c.bold("Almost done.")} Render the theme once in your root layout:
     {children}
   </body>
 
-Then add components:  npx zerostyled-ui add button card dialog
+Then add components:  npx shivlahejat-ui add button card dialog
 `);
 }
 
@@ -173,7 +182,7 @@ async function cmdAdd() {
     names = index.items.map((i) => i.name);
   }
   if (!names.length) {
-    console.log("Usage: zerostyled-ui add <component...>   (or --all)");
+    console.log("Usage: shivlahejat-ui add <component...>   (or --all)");
     process.exit(1);
   }
   const items = await resolveItems(names, config.registry);
@@ -192,7 +201,7 @@ async function cmdList() {
 const commands = { init: cmdInit, add: cmdAdd, list: cmdList };
 
 if (!commands[command]) {
-  console.log(`zerostyled-ui
+  console.log(`shivlahejat-ui
 
   init                 Set up the theme and config
   add <names...>       Add components (and their dependencies)
