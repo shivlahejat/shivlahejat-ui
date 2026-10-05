@@ -138,9 +138,11 @@ type PayloadItem = {
 
 type ChartTooltipContentProps = {
   active?: boolean;
-  payload?: PayloadItem[];
+  payload?: readonly PayloadItem[];
   label?: ReactNode;
   hideLabel?: boolean;
+  /** Format the heading, e.g. turn an ISO date into "Oct 5". */
+  labelFormatter?: (label: ReactNode) => ReactNode;
   /** Use another field of the data as the row key, e.g. "browser" for pie charts. */
   nameKey?: string;
   formatter?: (value: unknown, name: string) => ReactNode;
@@ -154,10 +156,12 @@ export function ChartTooltipContent({
   hideLabel,
   nameKey,
   formatter,
+  labelFormatter,
 }: ChartTooltipContentProps) {
   const { config } = useChart();
   if (!active || !payload?.length) return null;
-  const labelText = typeof label === "string" ? (config[label]?.label ?? label) : label;
+  const raw = typeof label === "string" ? (config[label]?.label ?? label) : label;
+  const labelText = labelFormatter && raw != null ? labelFormatter(raw) : raw;
   return (
     <TooltipBox>
       {!hideLabel && labelText != null && <TooltipLabel>{labelText}</TooltipLabel>}
@@ -194,7 +198,12 @@ const LegendBox = styled.div`
 `;
 
 type ChartLegendContentProps = {
-  payload?: Array<{ value?: unknown; dataKey?: unknown; color?: string; payload?: Record<string, unknown> }>;
+  payload?: ReadonlyArray<{
+    value?: unknown;
+    dataKey?: unknown;
+    color?: string;
+    payload?: Record<string, unknown>;
+  }>;
   nameKey?: string;
 };
 
