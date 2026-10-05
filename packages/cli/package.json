@@ -6,7 +6,7 @@
   "author": "shivlahejat",
   "type": "module",
   "bin": {
-    "shivlahejat-ui": "./bin/index.mjs"
+    "shivlahejat-ui": "bin/index.mjs"
   },
   "files": [
     "bin"
